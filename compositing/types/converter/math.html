@@ -1,550 +1,1256 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
+
 <head>
   <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Math Node &mdash; Blender Manual</title>
-  
 
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Math Node &mdash; Blender Manual</title>
+
+
+
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
 
-  
-  
-    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-  
-  
-  
-    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/compositing/types/converter/math.html"/>
-  
 
-  
+
+  <link rel="shortcut icon" href="../../../_static/favicon.ico" />
+
+
+
+  <link rel="canonical" href="https://docs.blender.org/manual/en/latest/compositing/types/converter/math.html" />
+
+
+
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
-        <script src="../../../_static/js/version_switch.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
-    
-    <link rel="search" type="application/opensearchdescription+xml"
-          title="Search within Blender Manual"
-          href="../../../_static/opensearch.xml"/>
-    <link rel="alternate" hreflang="en" href="https://docs.blender.org/manual/en/latest/">
-    <link rel="alternate" hreflang="de" href="https://docs.blender.org/manual/de/latest/">
-    <link rel="alternate" hreflang="es" href="https://docs.blender.org/manual/es/latest/">
-    <link rel="alternate" hreflang="fi" href="https://docs.blender.org/manual/fi/latest/">
-    <link rel="alternate" hreflang="fr" href="https://docs.blender.org/manual/fr/latest/">
-    <link rel="alternate" hreflang="it" href="https://docs.blender.org/manual/it/latest/">
-    <link rel="alternate" hreflang="ja" href="https://docs.blender.org/manual/ja/latest/">
-    <link rel="alternate" hreflang="ko" href="https://docs.blender.org/manual/ko/latest/">
-    <link rel="alternate" hreflang="nb" href="https://docs.blender.org/manual/nb/latest/">
-    <link rel="alternate" hreflang="pt" href="https://docs.blender.org/manual/pt/latest/">
-    <link rel="alternate" hreflang="ru" href="https://docs.blender.org/manual/ru/latest/">
-    <link rel="alternate" hreflang="sl" href="https://docs.blender.org/manual/sl/latest/">
-    <link rel="alternate" hreflang="sr" href="https://docs.blender.org/manual/sr/latest/">
-    <link rel="alternate" hreflang="uk" href="https://docs.blender.org/manual/uk/latest/">
-    <link rel="alternate" hreflang="vi" href="https://docs.blender.org/manual/vi/latest/">
-    <link rel="alternate" hreflang="zh-Hans" href="https://docs.blender.org/manual/zh-hans/latest/">
-    <link rel="alternate" hreflang="zh-Hant" href="https://docs.blender.org/manual/zh-hant/latest/">
-    <link rel="alternate" hreflang="x-default" href="https://docs.blender.org/manual/en/latest/">
-    
-    <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="copyright" title="Copyright" href="../../../copyright.html" />
-    <link rel="next" title="RGB to BW Node" href="rgb_to_bw.html" />
-    <link rel="prev" title="ID Mask Node" href="id_mask.html" /> 
+
+  <script type="text/javascript" id="documentation_options" data-url_root="../../../"
+    src="../../../_static/documentation_options.js"></script>
+  <script src="../../../_static/jquery.js"></script>
+  <script src="../../../_static/underscore.js"></script>
+  <script src="../../../_static/doctools.js"></script>
+  <script src="../../../_static/language_data.js"></script>
+  <script src="../../../_static/js/version_switch.js"></script>
+  <script async="async"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+
+  <link rel="search" type="application/opensearchdescription+xml" title="Search within Blender Manual"
+    href="../../../_static/opensearch.xml" />
+  <link rel="alternate" hreflang="en" href="https://docs.blender.org/manual/en/latest/">
+  <link rel="alternate" hreflang="de" href="https://docs.blender.org/manual/de/latest/">
+  <link rel="alternate" hreflang="es" href="https://docs.blender.org/manual/es/latest/">
+  <link rel="alternate" hreflang="fi" href="https://docs.blender.org/manual/fi/latest/">
+  <link rel="alternate" hreflang="fr" href="https://docs.blender.org/manual/fr/latest/">
+  <link rel="alternate" hreflang="it" href="https://docs.blender.org/manual/it/latest/">
+  <link rel="alternate" hreflang="ja" href="https://docs.blender.org/manual/ja/latest/">
+  <link rel="alternate" hreflang="ko" href="https://docs.blender.org/manual/ko/latest/">
+  <link rel="alternate" hreflang="nb" href="https://docs.blender.org/manual/nb/latest/">
+  <link rel="alternate" hreflang="pt" href="https://docs.blender.org/manual/pt/latest/">
+  <link rel="alternate" hreflang="ru" href="https://docs.blender.org/manual/ru/latest/">
+  <link rel="alternate" hreflang="sl" href="https://docs.blender.org/manual/sl/latest/">
+  <link rel="alternate" hreflang="sr" href="https://docs.blender.org/manual/sr/latest/">
+  <link rel="alternate" hreflang="uk" href="https://docs.blender.org/manual/uk/latest/">
+  <link rel="alternate" hreflang="vi" href="https://docs.blender.org/manual/vi/latest/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.blender.org/manual/zh-hans/latest/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.blender.org/manual/zh-hant/latest/">
+  <link rel="alternate" hreflang="x-default" href="https://docs.blender.org/manual/en/latest/">
+
+  <link rel="index" title="Index" href="../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../search.html" />
+  <link rel="copyright" title="Copyright" href="../../../copyright.html" />
+  <link rel="next" title="RGB to BW Node" href="rgb_to_bw.html" />
+  <link rel="prev" title="ID Mask Node" href="id_mask.html" />
 </head>
 
 <body class="wy-body-for-nav">
 
-   
+
   <div class="wy-grid-for-nav">
-    
+
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+        <div class="wy-side-nav-search">
 
-          
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> Blender 2.83 Manual
-          
 
-          
-            
-            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
-          
+
+          <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> Blender 2.83 Manual
+
+
+
+
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo" />
+
           </a>
 
-          
 
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
 
-          
+
+          <div role="search">
+            <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+              <input type="text" name="q" placeholder="Search docs" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+
+
         </div>
 
-        
+
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../scene_layout/index.html">Scenes &amp; Objects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Sculpting &amp; Painting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../grease_pencil/index.html">Grease Pencil</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation &amp; Rigging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Rendering</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Compositing</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../sidebar.html">Sidebar</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#node-types">Node Types</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../input/index.html">Input Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Output Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../color/index.html">Color Nodes</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="index.html">Converter Nodes</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="alpha_convert.html">Alpha Convert Node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="color_ramp.html">Color Ramp Node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="combine_separate.html">Combine/Separate Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="id_mask.html">ID Mask Node</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Math Node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rgb_to_bw.html">RGB to BW Node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="set_alpha.html">Set Alpha Node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="switch_view.html">Switch View Node</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../filter/index.html">Filter Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../vector/index.html">Vector Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../matte/index.html">Matte Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../distort/index.html">Distort Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../groups.html">Node Groups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../layout/index.html">Layout Nodes</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../../movie_clip/index.html">Tracking &amp; Masking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../video_editing/index.html">Video Editing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../files/index.html">Files &amp; Data System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Contribute Documentation</a></li>
-</ul>
 
-            
-          
+
+
+
+
+
+          <ul class="current">
+            <li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting
+                Started</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a>
+            </li>
+            <li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="../../../scene_layout/index.html">Scenes &amp;
+                Objects</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Sculpting &amp;
+                Painting</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="../../../grease_pencil/index.html">Grease
+                Pencil</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation &amp;
+                Rigging</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Rendering</a></li>
+            <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Compositing</a>
+              <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../sidebar.html">Sidebar</a></li>
+                <li class="toctree-l2 current"><a class="reference internal" href="../../index.html#node-types">Node
+                    Types</a>
+                  <ul class="current">
+                    <li class="toctree-l3"><a class="reference internal" href="../input/index.html">Input Nodes</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="../output/index.html">Output Nodes</a>
+                    </li>
+                    <li class="toctree-l3"><a class="reference internal" href="../color/index.html">Color Nodes</a></li>
+                    <li class="toctree-l3 current"><a class="reference internal" href="index.html">Converter Nodes</a>
+                      <ul class="current">
+                        <li class="toctree-l4"><a class="reference internal" href="alpha_convert.html">Alpha Convert
+                            Node</a></li>
+                        <li class="toctree-l4"><a class="reference internal" href="color_ramp.html">Color Ramp Node</a>
+                        </li>
+                        <li class="toctree-l4"><a class="reference internal"
+                            href="combine_separate.html">Combine/Separate Nodes</a></li>
+                        <li class="toctree-l4"><a class="reference internal" href="id_mask.html">ID Mask Node</a></li>
+                        <li class="toctree-l4 current"><a class="current reference internal" href="#">Math Node</a></li>
+                        <li class="toctree-l4"><a class="reference internal" href="rgb_to_bw.html">RGB to BW Node</a>
+                        </li>
+                        <li class="toctree-l4"><a class="reference internal" href="set_alpha.html">Set Alpha Node</a>
+                        </li>
+                        <li class="toctree-l4"><a class="reference internal" href="switch_view.html">Switch View
+                            Node</a></li>
+                      </ul>
+                    </li>
+                    <li class="toctree-l3"><a class="reference internal" href="../filter/index.html">Filter Nodes</a>
+                    </li>
+                    <li class="toctree-l3"><a class="reference internal" href="../vector/index.html">Vector Nodes</a>
+                    </li>
+                    <li class="toctree-l3"><a class="reference internal" href="../matte/index.html">Matte Nodes</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="../distort/index.html">Distort Nodes</a>
+                    </li>
+                    <li class="toctree-l3"><a class="reference internal" href="../groups.html">Node Groups</a></li>
+                    <li class="toctree-l3"><a class="reference internal" href="../layout/index.html">Layout Nodes</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="toctree-l1"><a class="reference internal" href="../../../movie_clip/index.html">Tracking &amp;
+                Masking</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="../../../video_editing/index.html">Video
+                Editing</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="../../../files/index.html">Files &amp; Data
+                System</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+            <li class="toctree-l1"><a class="reference internal"
+                href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+          </ul>
+          <ul>
+            <li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Contribute
+                Documentation</a></li>
+          </ul>
+
+
+
         </div>
-        
+
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"
+      style="display: grid;grid-template-columns: auto auto;">
 
-      
+
       <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">Blender 2.83 Manual</a>
-        
+
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Blender 2.83 Manual</a>
+
       </nav>
 
 
       <div class="wy-nav-content">
-        
+
         <div class="rst-content">
-        
-          
+
+          <div role="navigation" aria-label="breadcrumbs navigation">
+
+            <ul class="wy-breadcrumbs">
+
+              <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+
+              <li><a href="../../../editors/index.html">Editors</a> &raquo;</li>
+
+              <li><a href="../../index.html">Compositing</a> &raquo;</li>
+
+              <li><a href="index.html">Converter Nodes</a> &raquo;</li>
+
+              <li>Math Node</li>
 
 
+            </ul>
 
 
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../../editors/index.html">Editors</a> &raquo;</li>
-        
-          <li><a href="../../index.html">Compositing</a> &raquo;</li>
-        
-          <li><a href="index.html">Converter Nodes</a> &raquo;</li>
-        
-      <li>Math Node</li>
-    
-    
-  </ul>
-
-  
-  <hr/>
-</div>
+            <hr />
+          </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <span class="target" id="bpy-types-compositornodemath"></span><div class="section" id="math-node">
-<h1>Math Node<a class="headerlink" href="#math-node" title="Permalink to this headline">¶</a></h1>
-<div class="figure align-right" id="id1">
-<img alt="../../../_images/compositing_node-types_CompositorNodeMath.png" src="../../../_images/compositing_node-types_CompositorNodeMath.png" />
-<p class="caption"><span class="caption-text">Math node.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-<p>The <em>Math Node</em> performs math operations.</p>
-<div class="section" id="inputs">
-<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
-<p>The inputs of the node are dynamic. Some inputs are only available in certain operations.
-For instance, the <em>Addend</em> input is only available in the <em>Multiply Add</em> operator.</p>
-<dl class="simple">
-<dt>Value</dt><dd><p>Input Value. Trigonometric functions read this value as radians.</p>
-</dd>
-<dt>Addend</dt><dd><p>Input Addend.</p>
-</dd>
-<dt>Base</dt><dd><p>Input Base.</p>
-</dd>
-<dt>Exponent</dt><dd><p>Input Exponent.</p>
-</dd>
-<dt>Epsilon</dt><dd><p>Input Epsilon.</p>
-</dd>
-<dt>Distance</dt><dd><p>Input Distance.</p>
-</dd>
-<dt>Min</dt><dd><p>Input Minimum.</p>
-</dd>
-<dt>Max</dt><dd><p>Input Maximum.</p>
-</dd>
-<dt>Increment</dt><dd><p>Input Increment.</p>
-</dd>
-<dt>Scale</dt><dd><p>Input Scale.</p>
-</dd>
-<dt>Degrees</dt><dd><p>Input Degrees.</p>
-</dd>
-<dt>Radians</dt><dd><p>Input Radians.</p>
-</dd>
-</dl>
-</div>
-<div class="section" id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
-<dl>
-<dt>Operation</dt><dd><p>The mathematical operator to be applied to the input values:</p>
-<dl class="simple">
-<dt>Functions</dt><dd><dl class="simple">
-<dt>Add</dt><dd><p>The sum of the two values.</p>
-</dd>
-<dt>Subtract</dt><dd><p>The difference between the two values.</p>
-</dd>
-<dt>Multiply</dt><dd><p>The product of the two values.</p>
-</dd>
-<dt>Divide</dt><dd><p>The division of the first value by the second value.</p>
-</dd>
-<dt>Multiply Add</dt><dd><p>The sum of the product of the two values with <em>Addend</em>.</p>
-</dd>
-<dt>Power</dt><dd><p>The <em>Base</em> raised to the power of <em>Exponent</em>.</p>
-</dd>
-<dt>Logarithm</dt><dd><p>The log of value with a <em>Base</em> as its base.</p>
-</dd>
-<dt>Square Root</dt><dd><p>The square root of the value.</p>
-</dd>
-<dt>Inverse Square Root</dt><dd><p>One divided by the square root of the value.</p>
-</dd>
-<dt>Absolute</dt><dd><p>The input value is read with without regard to its sign. This turns negative values into positive values.</p>
-</dd>
-<dt>Exponent</dt><dd><p>Raises <a class="reference external" href="https://en.wikipedia.org/wiki/E_(mathematical_constant)">Euler’s number</a> to
-the power of the value.</p>
-</dd>
-</dl>
-</dd>
-<dt>Comparison</dt><dd><dl class="simple">
-<dt>Minimum</dt><dd><p>Outputs the smallest of the input values.</p>
-</dd>
-<dt>Maximum</dt><dd><p>Outputs the largest of two input values.</p>
-</dd>
-<dt>Less Than</dt><dd><p>Outputs 1.0 if the first value is smaller than the second value. Otherwise the output is 0.0.</p>
-</dd>
-<dt>Greater Than</dt><dd><p>Outputs 1.0 if the first value is larger than the second value. Otherwise the output is 0.0.</p>
-</dd>
-<dt>Sign</dt><dd><p>Extracts the sign of the input value. All positive numbers
-will output 1.0. All negative numbers will output -1.0. And 0.0 will output 0.0.</p>
-</dd>
-<dt>Compare</dt><dd><p>Outputs 1.0 if the difference between the two input values is less than or equal to <em>Epsilon</em>.</p>
-</dd>
-<dt>Smooth Minimum</dt><dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Smooth_maximum">Smooth Minimum</a>.</p>
-</dd>
-<dt>Smooth Maximum</dt><dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Smooth_maximum">Smooth Maximum</a>.</p>
-</dd>
-</dl>
-</dd>
-<dt>Rounding</dt><dd><dl class="simple">
-<dt>Round</dt><dd><p>Round the input value to the nearest integer.</p>
-</dd>
-<dt>Floor</dt><dd><p>Rounds the input value down to the nearest integer.</p>
-</dd>
-<dt>Ceil</dt><dd><p>Rounds the input value up to the nearest integer.</p>
-</dd>
-<dt>Truncate</dt><dd><p>Outputs the integer part of the <em>value</em>.</p>
-</dd>
-<dt>Fraction</dt><dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Rational_function">Fraction</a>.</p>
-</dd>
-<dt>Modulo</dt><dd><p>Outputs the remainder once the first value is divided by the second value.</p>
-</dd>
-<dt>Wrap</dt><dd><p>Outputs a value between <em>Min</em> and <em>Max</em> based on the absolute difference between
-the input value and the nearest integer multiple of <em>Max</em> less than the value.</p>
-</dd>
-<dt>Snap</dt><dd><p>Round the input value to down to the nearest integer multiple of <em>Increment</em>.</p>
-</dd>
-<dt>Ping-pong</dt><dd><p>The output value is moved between 0.0 and the <em>Scale</em> based on the input value.</p>
-</dd>
-</dl>
-</dd>
-<dt>Trigonometric</dt><dd><dl class="simple">
-<dt>Sine</dt><dd><p>The <a class="reference external" href="en.wikipedia.org/wiki/Sine">Sine</a> of the input value.</p>
-</dd>
-<dt>Cosine</dt><dd><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Trigonometric_functions">Cosine</a> of the input value.</p>
-</dd>
-<dt>Tangent</dt><dd><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Trigonometric_functions">Tangent</a> of the input value.</p>
-</dd>
-<dt>Arcsine</dt><dd><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">Arcsine</a> of the input value.</p>
-</dd>
-<dt>Arccosine</dt><dd><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">Arccosine</a> of the input value.</p>
-</dd>
-<dt>Arctangent</dt><dd><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">Arctangent</a> of the input value.</p>
-</dd>
-<dt>Arctan2</dt><dd><p>Outputs the <a class="reference external" href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">Inverse Tangent</a>
-of the first value divided by the second value measured in radians.</p>
-</dd>
-<dt>Hyperbolic Sine</dt><dd><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Hyperbolic_functions">Hyperbolic Sine</a> of the input value.</p>
-</dd>
-<dt>Hyperbolic Cosine</dt><dd><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Hyperbolic_functions">Hyperbolic Cosine</a> of the input value.</p>
-</dd>
-<dt>Hyperbolic Tangent</dt><dd><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Hyperbolic_functions">Hyperbolic Tangent</a> of the input value.</p>
-</dd>
-</dl>
-</dd>
-<dt>Conversion</dt><dd><dl class="simple">
-<dt>To Radians</dt><dd><p>Converts the input from degrees to radians.</p>
-</dd>
-<dt>To Degrees</dt><dd><p>Converts the input from radians to degrees.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-<dt>Clamp</dt><dd><p>Limits the output to the range (0.0 to 1.0). See <a class="reference internal" href="../../../glossary/index.html#term-clamp"><span class="xref std std-term">clamp</span></a>.</p>
-</dd>
-</dl>
-</div>
-<div class="section" id="outputs">
-<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
-<dl class="simple">
-<dt>Value</dt><dd><p>Numerical value output.</p>
-</dd>
-</dl>
-</div>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="manual-z-mask">
-<h3>Manual Z-Mask<a class="headerlink" href="#manual-z-mask" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-default" id="id2">
-<img alt="../../../_images/compositing_types_converter_math_manual-z-mask.png" src="../../../_images/compositing_types_converter_math_manual-z-mask.png" />
-<p class="caption"><span class="caption-text">Minimum and maximum function example.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-<p>This example has one scene input by the top <em>Render Layers</em> node,
-which has a cube that is about 10 units from the camera.
-The bottom <em>Render Layers</em> node inputs a scene
-with a plane that covers the left half of the view and is 7 units from the camera.
-Both are fed through their respective <em>Map Value</em> nodes to divide the Z-buffer by 20
-(multiply by 0.05, as shown in the Size field)
-and clamped to be a min/max of 0.0/1.0 respectively.</p>
-<p>For the minimum function,
-the node selects those Z values where the corresponding pixel is closer to the camera;
-so it chooses the Z values for the plane and part of the cube.
-The background has an infinite Z value, so it is clamped to 1.0 (shown as white).
-In the maximum example, the Z values of the cube are greater than the plane,
-so they are chosen for the left side, but the plane <em>Render Layers</em> Z are infinite
-(mapped to 1.0) for the right side, so they are chosen.</p>
-</div>
-<div class="section" id="using-sine-function-to-pulsate">
-<h3>Using Sine Function to Pulsate<a class="headerlink" href="#using-sine-function-to-pulsate" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-default" id="id3">
-<img alt="../../../_images/compositing_types_converter_math_sine.png" src="../../../_images/compositing_types_converter_math_sine.png" />
-<p class="caption"><span class="caption-text">Using sine function example.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-<p>This example has a <em>Time</em> node putting out a linear sequence from 0 to 1 over the course of 101 frames.
-At frame 25, the output value is 0.25.
-That value is multiplied by 2 × pi (6.28) and converted to 1.0 by the Sine function,
-since <span class="math notranslate nohighlight">\(sin(2 × pi/ 4) = sin(pi/ 2) = +1.0\)</span>.</p>
-<p>Since the sine function can put out values between (-1.0 to 1.0),
-the <em>Map Value</em> node scales that to 0.0 to 1.0 by taking the input (-1 to 1), adding 1
-(making 0 to 2), and multiplying the result by one-half (thus scaling the output between 0 to 1).
-The default <em>Color Ramp</em> converts those values to a gray-scale.
-Thus, medium gray corresponds to a 0.0 output by the sine, black to -1.0,
-and white to 1.0. As you can see, <span class="math notranslate nohighlight">\(sin(pi/ 2) = 1.0\)</span>. Like having your own visual color calculator!
-Animating this node setup provides a smooth cyclic sequence through the range of grays.</p>
-<p>Use this function to vary, for example,
-the alpha channel of an image to produce a fading in/out effect.
-Alter the Z channel to move a scene in/out of focus.
-Alter a color channel value to make a color “pulse”.</p>
-</div>
-<div class="section" id="brightening-scaling-a-channel">
-<h3>Brightening (Scaling) a Channel<a class="headerlink" href="#brightening-scaling-a-channel" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-default" id="id4">
-<img alt="../../../_images/compositing_types_converter_math_multiply.png" src="../../../_images/compositing_types_converter_math_multiply.png" />
-<p class="caption"><span class="caption-text">Scaling a channel example.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
-<p>This example has a <em>Math (Multiply)</em> node increasing the luminance channel (Y)
-of the image to make it brighter. Note that you should use a <em>Map Value node</em>
-with min() and max() enabled to clamp the output to valid values.
-With this approach, you could use a logarithmic function to make a high dynamic range image.
-For this particular example,
-there is also a <em>Bright/Contrast node</em> that might give simpler control over brightness.</p>
-</div>
-<div class="section" id="restrict-color-selection-posterization">
-<h3>Restrict Color Selection (Posterization)<a class="headerlink" href="#restrict-color-selection-posterization" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-default" id="id5">
-<img alt="../../../_images/compositing_types_converter_math_posterization.png" src="../../../_images/compositing_types_converter_math_posterization.png" />
-<p class="caption"><span class="caption-text">Posterization example.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</div>
-<p>In this example, we restrict the color values to be one of the six values: 0, 0.2, 0.4, 0.6, 0.8, 1.</p>
-<p>To split up a continuous range of values between 0 and 1 to certain set of values,
-the following function is used: <span class="math notranslate nohighlight">\(round(x × n - 0.5) / (n - 1)\)</span>,
-where “n” is the number of possible output values, and “x” is the input pixel color.
-<a class="reference external" href="https://en.blender.org/index.php/Doc:2.4/Manual/Composite_Nodes/Types/Convertor#Quantize.2FRestrict_Color_Selection">Read more about this function</a>.</p>
-<p>To implement this function in Blender, consider the node setup above.
-We string the Math nodes into a function that takes each color (values from 0 to 1),
-multiplies it up by six, the desired number of divisions (values become from 0 to 6),
-offsets it by 0.5 (-0.5 to 5.5),
-rounds the value to the nearest whole number (produces 0, 1, 2, 3, 4, 5),
-and then divides the image pixel color by five (0.0, 0.2, 0.4, 0.6, 0.8, 1.0).</p>
-<p>In the case of a color image,
-you need split it into separate RGB channels using <em>Separate/Combine RGBA</em> nodes
-and perform this operation on each channel independently.</p>
-</div>
-</div>
-</div>
+            <div itemprop="articleBody">
+
+              <span class="target" id="bpy-types-compositornodemath"></span>
+              <div class="section" id="math-node">
+                <h1>Math Node<a class="headerlink" href="#math-node" title="Permalink to this headline">¶</a></h1>
+                <div class="figure align-right" id="id1">
+                  <img alt="../../../_images/compositing_node-types_CompositorNodeMath.png"
+                    src="../../../_images/compositing_node-types_CompositorNodeMath.png" />
+                  <p class="caption"><span class="caption-text">Math node.</span><a class="headerlink" href="#id1"
+                      title="Permalink to this image">¶</a></p>
+                </div>
+                <p>The <em>Math Node</em> performs math operations.</p>
+                <div class="section" id="inputs">
+                  <h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+                  <p>The inputs of the node are dynamic. Some inputs are only available in certain operations.
+                    For instance, the <em>Addend</em> input is only available in the <em>Multiply Add</em> operator.</p>
+                  <dl class="simple">
+                    <dt>Value</dt>
+                    <dd>
+                      <p>Input Value. Trigonometric functions read this value as radians.</p>
+                    </dd>
+                    <dt>Addend</dt>
+                    <dd>
+                      <p>Input Addend.</p>
+                    </dd>
+                    <dt>Base</dt>
+                    <dd>
+                      <p>Input Base.</p>
+                    </dd>
+                    <dt>Exponent</dt>
+                    <dd>
+                      <p>Input Exponent.</p>
+                    </dd>
+                    <dt>Epsilon</dt>
+                    <dd>
+                      <p>Input Epsilon.</p>
+                    </dd>
+                    <dt>Distance</dt>
+                    <dd>
+                      <p>Input Distance.</p>
+                    </dd>
+                    <dt>Min</dt>
+                    <dd>
+                      <p>Input Minimum.</p>
+                    </dd>
+                    <dt>Max</dt>
+                    <dd>
+                      <p>Input Maximum.</p>
+                    </dd>
+                    <dt>Increment</dt>
+                    <dd>
+                      <p>Input Increment.</p>
+                    </dd>
+                    <dt>Scale</dt>
+                    <dd>
+                      <p>Input Scale.</p>
+                    </dd>
+                    <dt>Degrees</dt>
+                    <dd>
+                      <p>Input Degrees.</p>
+                    </dd>
+                    <dt>Radians</dt>
+                    <dd>
+                      <p>Input Radians.</p>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="section" id="properties">
+                  <h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+                  <dl>
+                    <dt>Operation</dt>
+                    <dd>
+                      <p>The mathematical operator to be applied to the input values:</p>
+                      <dl class="simple">
+                        <dt>Functions</dt>
+                        <dd>
+                          <dl class="simple">
+                            <dt>Add</dt>
+                            <dd>
+                              <p>The sum of the two values.</p>
+                            </dd>
+                            <dt>Subtract</dt>
+                            <dd>
+                              <p>The difference between the two values.</p>
+                            </dd>
+                            <dt>Multiply</dt>
+                            <dd>
+                              <p>The product of the two values.</p>
+                            </dd>
+                            <dt>Divide</dt>
+                            <dd>
+                              <p>The division of the first value by the second value.</p>
+                            </dd>
+                            <dt>Multiply Add</dt>
+                            <dd>
+                              <p>The sum of the product of the two values with <em>Addend</em>.</p>
+                            </dd>
+                            <dt>Power</dt>
+                            <dd>
+                              <p>The <em>Base</em> raised to the power of <em>Exponent</em>.</p>
+                            </dd>
+                            <dt>Logarithm</dt>
+                            <dd>
+                              <p>The log of value with a <em>Base</em> as its base.</p>
+                            </dd>
+                            <dt>Square Root</dt>
+                            <dd>
+                              <p>The square root of the value.</p>
+                            </dd>
+                            <dt>Inverse Square Root</dt>
+                            <dd>
+                              <p>One divided by the square root of the value.</p>
+                            </dd>
+                            <dt>Absolute</dt>
+                            <dd>
+                              <p>The input value is read with without regard to its sign. This turns negative values
+                                into positive values.</p>
+                            </dd>
+                            <dt>Exponent</dt>
+                            <dd>
+                              <p>Raises <a class="reference external"
+                                  href="https://en.wikipedia.org/wiki/E_(mathematical_constant)">Euler’s number</a> to
+                                the power of the value.</p>
+                            </dd>
+                          </dl>
+                        </dd>
+                        <dt>Comparison</dt>
+                        <dd>
+                          <dl class="simple">
+                            <dt>Minimum</dt>
+                            <dd>
+                              <p>Outputs the smallest of the input values.</p>
+                            </dd>
+                            <dt>Maximum</dt>
+                            <dd>
+                              <p>Outputs the largest of two input values.</p>
+                            </dd>
+                            <dt>Less Than</dt>
+                            <dd>
+                              <p>Outputs 1.0 if the first value is smaller than the second value. Otherwise the output
+                                is 0.0.</p>
+                            </dd>
+                            <dt>Greater Than</dt>
+                            <dd>
+                              <p>Outputs 1.0 if the first value is larger than the second value. Otherwise the output is
+                                0.0.</p>
+                            </dd>
+                            <dt>Sign</dt>
+                            <dd>
+                              <p>Extracts the sign of the input value. All positive numbers
+                                will output 1.0. All negative numbers will output -1.0. And 0.0 will output 0.0.</p>
+                            </dd>
+                            <dt>Compare</dt>
+                            <dd>
+                              <p>Outputs 1.0 if the difference between the two input values is less than or equal to
+                                <em>Epsilon</em>.</p>
+                            </dd>
+                            <dt>Smooth Minimum</dt>
+                            <dd>
+                              <p><a class="reference external"
+                                  href="https://en.wikipedia.org/wiki/Smooth_maximum">Smooth Minimum</a>.</p>
+                            </dd>
+                            <dt>Smooth Maximum</dt>
+                            <dd>
+                              <p><a class="reference external"
+                                  href="https://en.wikipedia.org/wiki/Smooth_maximum">Smooth Maximum</a>.</p>
+                            </dd>
+                          </dl>
+                        </dd>
+                        <dt>Rounding</dt>
+                        <dd>
+                          <dl class="simple">
+                            <dt>Round</dt>
+                            <dd>
+                              <p>Round the input value to the nearest integer.</p>
+                            </dd>
+                            <dt>Floor</dt>
+                            <dd>
+                              <p>Rounds the input value down to the nearest integer.</p>
+                            </dd>
+                            <dt>Ceil</dt>
+                            <dd>
+                              <p>Rounds the input value up to the nearest integer.</p>
+                            </dd>
+                            <dt>Truncate</dt>
+                            <dd>
+                              <p>Outputs the integer part of the <em>value</em>.</p>
+                            </dd>
+                            <dt>Fraction</dt>
+                            <dd>
+                              <p><a class="reference external"
+                                  href="https://en.wikipedia.org/wiki/Rational_function">Fraction</a>.</p>
+                            </dd>
+                            <dt>Modulo</dt>
+                            <dd>
+                              <p>Outputs the remainder once the first value is divided by the second value.</p>
+                            </dd>
+                            <dt>Wrap</dt>
+                            <dd>
+                              <p>Outputs a value between <em>Min</em> and <em>Max</em> based on the absolute difference
+                                between
+                                the input value and the nearest integer multiple of <em>Max</em> less than the value.
+                              </p>
+                            </dd>
+                            <dt>Snap</dt>
+                            <dd>
+                              <p>Round the input value to down to the nearest integer multiple of <em>Increment</em>.
+                              </p>
+                            </dd>
+                            <dt>Ping-pong</dt>
+                            <dd>
+                              <p>The output value is moved between 0.0 and the <em>Scale</em> based on the input value.
+                              </p>
+                            </dd>
+                          </dl>
+                        </dd>
+                        <dt>Trigonometric</dt>
+                        <dd>
+                          <dl class="simple">
+                            <dt>Sine</dt>
+                            <dd>
+                              <p>The <a class="reference external" href="en.wikipedia.org/wiki/Sine">Sine</a> of the
+                                input value.</p>
+                            </dd>
+                            <dt>Cosine</dt>
+                            <dd>
+                              <p>The <a class="reference external"
+                                  href="https://en.wikipedia.org/wiki/Trigonometric_functions">Cosine</a> of the input
+                                value.</p>
+                            </dd>
+                            <dt>Tangent</dt>
+                            <dd>
+                              <p>The <a class="reference external"
+                                  href="https://en.wikipedia.org/wiki/Trigonometric_functions">Tangent</a> of the input
+                                value.</p>
+                            </dd>
+                            <dt>Arcsine</dt>
+                            <dd>
+                              <p>The <a class="reference external"
+                                  href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">Arcsine</a> of
+                                the input value.</p>
+                            </dd>
+                            <dt>Arccosine</dt>
+                            <dd>
+                              <p>The <a class="reference external"
+                                  href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">Arccosine</a> of
+                                the input value.</p>
+                            </dd>
+                            <dt>Arctangent</dt>
+                            <dd>
+                              <p>The <a class="reference external"
+                                  href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">Arctangent</a> of
+                                the input value.</p>
+                            </dd>
+                            <dt>Arctan2</dt>
+                            <dd>
+                              <p>Outputs the <a class="reference external"
+                                  href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions">Inverse
+                                  Tangent</a>
+                                of the first value divided by the second value measured in radians.</p>
+                            </dd>
+                            <dt>Hyperbolic Sine</dt>
+                            <dd>
+                              <p>The <a class="reference external"
+                                  href="https://en.wikipedia.org/wiki/Hyperbolic_functions">Hyperbolic Sine</a> of the
+                                input value.</p>
+                            </dd>
+                            <dt>Hyperbolic Cosine</dt>
+                            <dd>
+                              <p>The <a class="reference external"
+                                  href="https://en.wikipedia.org/wiki/Hyperbolic_functions">Hyperbolic Cosine</a> of the
+                                input value.</p>
+                            </dd>
+                            <dt>Hyperbolic Tangent</dt>
+                            <dd>
+                              <p>The <a class="reference external"
+                                  href="https://en.wikipedia.org/wiki/Hyperbolic_functions">Hyperbolic Tangent</a> of
+                                the input value.</p>
+                            </dd>
+                          </dl>
+                        </dd>
+                        <dt>Conversion</dt>
+                        <dd>
+                          <dl class="simple">
+                            <dt>To Radians</dt>
+                            <dd>
+                              <p>Converts the input from degrees to radians.</p>
+                            </dd>
+                            <dt>To Degrees</dt>
+                            <dd>
+                              <p>Converts the input from radians to degrees.</p>
+                            </dd>
+                          </dl>
+                        </dd>
+                      </dl>
+                    </dd>
+                    <dt>Clamp</dt>
+                    <dd>
+                      <p>Limits the output to the range (0.0 to 1.0). See <a class="reference internal"
+                          href="../../../glossary/index.html#term-clamp"><span
+                            class="xref std std-term">clamp</span></a>.</p>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="section" id="outputs">
+                  <h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+                  <dl class="simple">
+                    <dt>Value</dt>
+                    <dd>
+                      <p>Numerical value output.</p>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="section" id="examples">
+                  <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+                  <div class="section" id="manual-z-mask">
+                    <h3>Manual Z-Mask<a class="headerlink" href="#manual-z-mask"
+                        title="Permalink to this headline">¶</a></h3>
+                    <div class="figure align-default" id="id2">
+                      <img alt="../../../_images/compositing_types_converter_math_manual-z-mask.png"
+                        src="../../../_images/compositing_types_converter_math_manual-z-mask.png" />
+                      <p class="caption"><span class="caption-text">Minimum and maximum function example.</span><a
+                          class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+                    </div>
+                    <p>This example has one scene input by the top <em>Render Layers</em> node,
+                      which has a cube that is about 10 units from the camera.
+                      The bottom <em>Render Layers</em> node inputs a scene
+                      with a plane that covers the left half of the view and is 7 units from the camera.
+                      Both are fed through their respective <em>Map Value</em> nodes to divide the Z-buffer by 20
+                      (multiply by 0.05, as shown in the Size field)
+                      and clamped to be a min/max of 0.0/1.0 respectively.</p>
+                    <p>For the minimum function,
+                      the node selects those Z values where the corresponding pixel is closer to the camera;
+                      so it chooses the Z values for the plane and part of the cube.
+                      The background has an infinite Z value, so it is clamped to 1.0 (shown as white).
+                      In the maximum example, the Z values of the cube are greater than the plane,
+                      so they are chosen for the left side, but the plane <em>Render Layers</em> Z are infinite
+                      (mapped to 1.0) for the right side, so they are chosen.</p>
+                  </div>
+                  <div class="section" id="using-sine-function-to-pulsate">
+                    <h3>Using Sine Function to Pulsate<a class="headerlink" href="#using-sine-function-to-pulsate"
+                        title="Permalink to this headline">¶</a></h3>
+                    <div class="figure align-default" id="id3">
+                      <img alt="../../../_images/compositing_types_converter_math_sine.png"
+                        src="../../../_images/compositing_types_converter_math_sine.png" />
+                      <p class="caption"><span class="caption-text">Using sine function example.</span><a
+                          class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+                    </div>
+                    <p>This example has a <em>Time</em> node putting out a linear sequence from 0 to 1 over the course
+                      of 101 frames.
+                      At frame 25, the output value is 0.25.
+                      That value is multiplied by 2 × pi (6.28) and converted to 1.0 by the Sine function,
+                      since <span class="math notranslate nohighlight">\(sin(2 × pi/ 4) = sin(pi/ 2) = +1.0\)</span>.
+                    </p>
+                    <p>Since the sine function can put out values between (-1.0 to 1.0),
+                      the <em>Map Value</em> node scales that to 0.0 to 1.0 by taking the input (-1 to 1), adding 1
+                      (making 0 to 2), and multiplying the result by one-half (thus scaling the output between 0 to 1).
+                      The default <em>Color Ramp</em> converts those values to a gray-scale.
+                      Thus, medium gray corresponds to a 0.0 output by the sine, black to -1.0,
+                      and white to 1.0. As you can see, <span class="math notranslate nohighlight">\(sin(pi/ 2) =
+                        1.0\)</span>. Like having your own visual color calculator!
+                      Animating this node setup provides a smooth cyclic sequence through the range of grays.</p>
+                    <p>Use this function to vary, for example,
+                      the alpha channel of an image to produce a fading in/out effect.
+                      Alter the Z channel to move a scene in/out of focus.
+                      Alter a color channel value to make a color “pulse”.</p>
+                  </div>
+                  <div class="section" id="brightening-scaling-a-channel">
+                    <h3>Brightening (Scaling) a Channel<a class="headerlink" href="#brightening-scaling-a-channel"
+                        title="Permalink to this headline">¶</a></h3>
+                    <div class="figure align-default" id="id4">
+                      <img alt="../../../_images/compositing_types_converter_math_multiply.png"
+                        src="../../../_images/compositing_types_converter_math_multiply.png" />
+                      <p class="caption"><span class="caption-text">Scaling a channel example.</span><a
+                          class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+                    </div>
+                    <p>This example has a <em>Math (Multiply)</em> node increasing the luminance channel (Y)
+                      of the image to make it brighter. Note that you should use a <em>Map Value node</em>
+                      with min() and max() enabled to clamp the output to valid values.
+                      With this approach, you could use a logarithmic function to make a high dynamic range image.
+                      For this particular example,
+                      there is also a <em>Bright/Contrast node</em> that might give simpler control over brightness.</p>
+                  </div>
+                  <div class="section" id="restrict-color-selection-posterization">
+                    <h3>Restrict Color Selection (Posterization)<a class="headerlink"
+                        href="#restrict-color-selection-posterization" title="Permalink to this headline">¶</a></h3>
+                    <div class="figure align-default" id="id5">
+                      <img alt="../../../_images/compositing_types_converter_math_posterization.png"
+                        src="../../../_images/compositing_types_converter_math_posterization.png" />
+                      <p class="caption"><span class="caption-text">Posterization example.</span><a class="headerlink"
+                          href="#id5" title="Permalink to this image">¶</a></p>
+                    </div>
+                    <p>In this example, we restrict the color values to be one of the six values: 0, 0.2, 0.4, 0.6, 0.8,
+                      1.</p>
+                    <p>To split up a continuous range of values between 0 and 1 to certain set of values,
+                      the following function is used: <span class="math notranslate nohighlight">\(round(x × n - 0.5) /
+                        (n - 1)\)</span>,
+                      where “n” is the number of possible output values, and “x” is the input pixel color.
+                      <a class="reference external"
+                        href="https://en.blender.org/index.php/Doc:2.4/Manual/Composite_Nodes/Types/Convertor#Quantize.2FRestrict_Color_Selection">Read
+                        more about this function</a>.</p>
+                    <p>To implement this function in Blender, consider the node setup above.
+                      We string the Math nodes into a function that takes each color (values from 0 to 1),
+                      multiplies it up by six, the desired number of divisions (values become from 0 to 6),
+                      offsets it by 0.5 (-0.5 to 5.5),
+                      rounds the value to the nearest whole number (produces 0, 1, 2, 3, 4, 5),
+                      and then divides the image pixel color by five (0.0, 0.2, 0.4, 0.6, 0.8, 1.0).</p>
+                    <p>In the case of a color image,
+                      you need split it into separate RGB channels using <em>Separate/Combine RGBA</em> nodes
+                      and perform this operation on each channel independently.</p>
+                  </div>
+                </div>
+              </div>
 
 
-           </div>
-           
+            </div>
+
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="rgb_to_bw.html" class="btn btn-neutral float-right" title="RGB to BW Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="id_mask.html" class="btn btn-neutral float-left" title="ID Mask Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
 
-  <hr/>
+            <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
 
-  <div role="contentinfo">
-    <p>
-        
-        
-        &copy; <a href="../../../copyright.html">Copyright</a> : This page is licensed under a CC-BY-SA 4.0 Int. License
-
-    </p>
-  </div>
-      <div class="footer-contribute">
-         <ul>
-            <li>
-               <a href="https://developer.blender.org/diffusion/BM/browse/trunk/blender_docs/manual/compositing/types/converter/math.rst" class="fa fa-edit"> Edit Page</a>
-            </li>
-            <li>
-               <a href="https://developer.blender.org/maniphest/task/edit/form/default/?description=Pagename%3A%20%60compositing/types/converter/math%60&project=PHID-PROJ-c4nvvrxuczix2326vlti" class="fa fa-bug"> Report Bug</a>
-            </li>
-         <ul>
-      </div>
+              <a href="rgb_to_bw.html" class="btn btn-neutral float-right" title="RGB to BW Node" accesskey="n"
+                rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
 
 
-</footer>
+              <a href="id_mask.html" class="btn btn-neutral float-left" title="ID Mask Node" accesskey="p"
+                rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+
+            </div>
+
+
+            <hr />
+
+            <div role="contentinfo">
+              <p>
+
+
+                &copy; <a href="../../../copyright.html">Copyright</a> : This page is licensed under a CC-BY-SA 4.0 Int.
+                License
+
+              </p>
+            </div>
+            <div class="footer-contribute">
+              <ul>
+                <li>
+                  <a href="https://developer.blender.org/diffusion/BM/browse/trunk/blender_docs/manual/compositing/types/converter/math.rst"
+                    class="fa fa-edit"> Edit Page</a>
+                </li>
+                <li>
+                  <a href="https://developer.blender.org/maniphest/task/edit/form/default/?description=Pagename%3A%20%60compositing/types/converter/math%60&project=PHID-PROJ-c4nvvrxuczix2326vlti"
+                    class="fa fa-bug"> Report Bug</a>
+                </li>
+                <ul>
+            </div>
+
+
+          </footer>
 
         </div>
       </div>
+      <div class="wy-nav-content">
 
+        <div class="rst-content">
+
+          <div role="navigation" aria-label="breadcrumbs navigation">
+
+            <ul class="wy-breadcrumbs">
+
+              <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+
+              <li><a href="../../../editors/index.html">Editors</a> &raquo;</li>
+
+              <li><a href="../../index.html">Compositing</a> &raquo;</li>
+
+              <li><a href="index.html">Converter Nodes</a> &raquo;</li>
+
+              <li>Math Node</li>
+
+
+            </ul>
+
+
+            <hr />
+          </div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+
+              <span class="target" id="bpy-types-compositornodemath"></span>
+              <div class="section" id="math-node">
+                <h1>Node matematika<a class="headerlink" href="#math-node" title="Permalink to this headline">¶</a></h1>
+                <div class="figure align-right" id="id1">
+                  <img alt="../../../_images/compositing_node-types_CompositorNodeMath.png"
+                    src="../../../_images/compositing_node-types_CompositorNodeMath.png" />
+                  <p class="caption"><span class="caption-text">Node matematika. </span> <a class="headerlink"
+                      href="# id1" title="Tautan permanen ke gambar ini"> ¶ </a> </p>
+                </div>
+                <p> <em> Node Matematika </em> melakukan operasi matematika. </p>
+                <div class="section" id="input">
+                  <h2> Memasukkan <a class="headerlink" href="#inputs" title="Permalink ke judul ini"> ¶ </a> </h2>
+                  <p> Input dari node bersifat dinamis. Beberapa input hanya tersedia dalam operasi tertentu.
+                    Misalnya, masukan <em> Tambah </em> hanya tersedia di operator <em> Perbanyak Tambah </em>. </p>
+                  <dl class="simple">
+                    <dt> Nilai </dt>
+                    <dd>
+                      <p> Nilai Masukan. Fungsi trigonometri membaca nilai ini sebagai radian. </p>
+                    </dd>
+                    <dt> Tambahkan </dt>
+                    <dd>
+                      <p> Masukkan Tambahan. </p>
+                    </dd>
+                    <dt> Basis </dt>
+                    <dd>
+                      <p> Basis Input. </p>
+                    </dd>
+                    <dt> Eksponen </dt>
+                    <dd>
+                      <p> Memasukkan Eksponen. </p>
+                    </dd>
+                    <dt> Epsilon </dt>
+                    <dd>
+                      <p> Masukkan Epsilon. </p>
+                    </dd>
+                    <dt> Jarak </dt>
+                    <dd>
+                      <p> Jarak Input. </p>
+                    </dd>
+                    <dt> Min </dt>
+                    <dd>
+                      <p> Minimum Input. </p>
+                    </dd>
+                    <dt> Maks </dt>
+                    <dd>
+                      <p> Input Maksimum. </p>
+                    </dd>
+                    <dt> Increment </dt>
+                    <dd>
+                      <p> Kenaikan Input. </p>
+                    </dd>
+                    <dt> Skala </dt>
+                    <dd>
+                      <p> Skala Input. </p>
+                    </dd>
+                    <dt> Derajat </dt>
+                    <dd>
+                      <p> Derajat Input. </p>
+                    </dd>
+                    <dt> Radian </dt>
+                    <dd>
+                      <p> Memasukkan Radian. </p>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="section" id="properties">
+                  <h2> Properti <a class="headerlink" href="#properties" title="Permalink to this headline"> ¶ </a>
+                  </h2>
+                  <dl>
+                    <dt> Operasi </dt>
+                    <dd>
+                      <p> Operator matematika yang akan diterapkan ke nilai masukan: </p>
+                      <dl class="simple">
+                        <dt> Fungsi </dt>
+                        <dd>
+                          <dl class="simple">
+                            <dt> Tambahkan </dt>
+                            <dd>
+                              <p> Jumlah dari dua nilai. </p>
+                            </dd>
+                            <dt> Kurangi </dt>
+                            <dd>
+                              <p> Perbedaan antara kedua nilai tersebut. </p>
+                            </dd>
+                            <dt> Kalikan </dt>
+                            <dd>
+                              <p> Produk dari dua nilai. </p>
+                            </dd>
+                            <dt> Bagi </dt>
+                            <dd>
+                              <p> Pembagian nilai pertama dengan nilai kedua. </p>
+                            </dd>
+                            <dt> Multiply Add </dt>
+                            <dd>
+                              <p> Jumlah produk dari dua nilai dengan <em> Tambahan </em>. </p>
+                            </dd>
+                            <dt> Daya </dt>
+                            <dd>
+                              <p> <em> Basis </em> yang dipangkatkan dari <em> Eksponen </em>. </p>
+                            </dd>
+                            <dt> Logaritma </dt>
+                            <dd>
+                              <p> Log nilai dengan <em> Basis </em> sebagai dasarnya. </p>
+                            </dd>
+                            <dt> Akar Pangkat Dua </dt>
+                            <dd>
+                              <p> Akar kuadrat dari nilai. </p>
+                            </dd>
+                            <dt> Akar Pangkat Dua Terbalik </dt>
+                            <dd>
+                              <p> Satu dibagi dengan akar kuadrat dari nilai tersebut. </p>
+                            </dd>
+                            <dt> Mutlak </dt>
+                            <dd>
+                              <p> Nilai masukan dibaca tanpa memperhatikan tandanya. Ini mengubah nilai negatif
+                                menjadi nilai-nilai positif. </p>
+                            </dd>
+                            <dt> Eksponen </dt>
+                            <dd>
+                              <p> Menaikkan <a class="reference external"
+                                  href="https://en.wikipedia.org/wiki/E_(mathematical_constant)"> nomor Euler </a> ke
+                                kekuatan nilai. </p>
+                            </dd>
+                          </dl>
+                        </dd>
+                        <dt> Perbandingan </dt>
+                        <dd>
+                          <dl class="simple">
+                            <dt> Minimum </dt>
+                            <dd>
+                              <p> Menghasilkan nilai input terkecil. </p>
+                            </dd>
+                            <dt> Maksimum </dt>
+                            <dd>
+                              <p> Menghasilkan yang terbesar dari dua nilai masukan. </p>
+                            </dd>
+                            <dt> Kurang Dari </dt>
+                            <dd>
+                              <p> Menghasilkan 1.0 jika nilai pertama lebih kecil dari nilai kedua. Jika tidak, hasilnya
+                                adalah 0,0. </p>
+                            </dd>
+                            <dt> Lebih Besar Dari </dt>
+                            <dd>
+                              <p> Menghasilkan 1.0 jika nilai pertama lebih besar dari nilai kedua. Jika tidak, hasilnya
+                                adalah
+                                0.0. </p>
+                            </dd>
+                            <dt> Masuk </dt>
+                            <dd>
+                              <p> Mengekstrak tanda dari nilai masukan. Semua bilangan positif
+                                akan menghasilkan 1.0. Semua angka negatif akan menghasilkan -1.0. Dan 0.0 akan
+                                menghasilkan 0.0. </p>
+                            </dd>
+                            <dt> Bandingkan </dt>
+                            <dd>
+                              <p> Mengeluarkan 1.0 jika perbedaan antara dua nilai masukan kurang dari atau sama dengan
+                                <em> Epsilon </em>. </p>
+                            </dd>
+                            <dt> Minimum Halus </dt>
+                            <dd>
+                              <p> <a class="referensi eksternal" href="https://en.wikipedia.org/wiki/Smooth_maximum">
+                                  Minimum Halus </a>. </p>
+                            </dd>
+                            <dt> Smooth Maximum </dt>
+                            <dd>
+                              <p> <a class="referensi eksternal" href="https://en.wikipedia.org/wiki/Smooth_maximum">
+                                  Maksimum Halus </a>. </p>
+                            </dd>
+                          </dl>
+                        </dd>
+                        <dt> Pembulatan </dt>
+                        <dd>
+                          <dl class="simple">
+                            <dt> Putaran </dt>
+                            <dd>
+                              <p> Bulatkan nilai masukan ke bilangan bulat terdekat. </p>
+                            </dd>
+                            <dt> Lantai </dt>
+                            <dd>
+                              <p> Membulatkan nilai masukan ke bawah hingga bilangan bulat terdekat. </p>
+                            </dd>
+                            <dt> Plafon </dt>
+                            <dd>
+                              <p> Membulatkan nilai masukan ke atas hingga bilangan bulat terdekat. </p>
+                            </dd>
+                            <dt> Pangkas </dt>
+                            <dd>
+                              <p> Mengeluarkan bagian integer dari <em> nilai </em>. </p>
+                            </dd>
+                            <dt> Pecahan </dt>
+                            <dd>
+                              <p> <a class="referensi eksternal" href="https://en.wikipedia.org/wiki/Rational_function">
+                                  Pecahan </a>. </p>
+                            </dd>
+                            <dt> Modulo </dt>
+                            <dd>
+                              <p> Mengeluarkan sisa setelah nilai pertama dibagi dengan nilai kedua. </p>
+                            </dd>
+                            <dt> Bungkus </dt>
+                            <dd>
+                              <p> Menghasilkan nilai antara <em> Min </em> dan <em> Max </em> berdasarkan perbedaan
+                                mutlak
+                                antara
+                                nilai masukan dan kelipatan bilangan bulat terdekat dari <em> Maks </em> kurang dari
+                                nilai.
+                              </p>
+                            </dd>
+                            <dt> Jepret </dt>
+                            <dd>
+                              <p> Bulatkan nilai masukan ke bawah hingga kelipatan bilangan bulat terdekat dari <em>
+                                  Kenaikan </em>.
+                              </p>
+                            </dd>
+                            <dt> Ping-pong </dt>
+                            <dd>
+                              <p> Nilai keluaran dipindahkan antara 0.0 dan <em> Skala </em> berdasarkan pada nilai
+                                masukan.
+                              </p>
+                            </dd>
+                          </dl>
+                        </dd>
+                        <dt> Trigonometri </dt>
+                        <dd>
+                          <dl class="simple">
+                            <dt> Sinus </dt>
+                            <dd>
+                              <p> <a class="reference external" href="en.wikipedia.org/wiki/Sine"> Sinus </a> dari
+                                nilai masukan. </p>
+                            </dd>
+                            <dt> Cosine </dt>
+                            <dd>
+                              <p> <a class="referensi eksternal"
+                                  href="https://en.wikipedia.org/wiki/Trigonometric_functions"> Cosine </a> dari masukan
+                                nilai. </p>
+                            </dd>
+                            <dt> Garis Singgung </dt>
+                            <dd>
+                              <p> <a class="referensi eksternal"
+                                  href="https://en.wikipedia.org/wiki/Trigonometric_functions"> Tangen </a> masukan
+                                nilai. </p>
+                            </dd>
+                            <dt> Arcsine </dt>
+                            <dd>
+                              <p> <a class="referensi eksternal"
+                                  href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions"> Arcsine </a>
+                                dari
+                                nilai masukan. </p>
+                            </dd>
+                            <dt> Arccosine </dt>
+                            <dd>
+                              <p> <a class="referensi eksternal"
+                                  href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions"> Arccosine </a>
+                                dari
+                                nilai masukan. </p>
+                            </dd>
+                            <dt> Arctangent </dt>
+                            <dd>
+                              <p> <a class="referensi eksternal"
+                                  href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions"> Arctangent </a>
+                                dari
+                                nilai masukan. </p>
+                            </dd>
+                            <dt> Arctan2 </dt>
+                            <dd>
+                              <p> Mengeluarkan <a class="reference external"
+                                  href="https://en.wikipedia.org/wiki/Inverse_trigonometric_functions"> Inverse
+                                  Tangent </a>
+                                dari nilai pertama dibagi dengan nilai kedua yang diukur dalam radian. </p>
+                            </dd>
+                            <dt> Sinus Hiperbolik </dt>
+                            <dd>
+                              <p> <a class="referensi eksternal"
+                                  href="https://en.wikipedia.org/wiki/Hyperbolic_functions"> Hyperbolic Sine </a> dari
+                                nilai masukan. </p>
+                            </dd>
+                            <dt> Hyperbolic Cosine </dt>
+                            <dd>
+                              <p> <a class="referensi eksternal"
+                                  href="https://en.wikipedia.org/wiki/Hyperbolic_functions"> Hyperbolic Cosine </a> dari
+                                nilai masukan. </p>
+                            </dd>
+                            <dt> Hyperbolic Tangent </dt>
+                            <dd>
+                              <p> <a class="referensi eksternal"
+                                  href="https://en.wikipedia.org/wiki/Hyperbolic_functions"> Hyperbolic Tangent </a>
+                                dari
+                                nilai masukan. </p>
+                            </dd>
+                          </dl>
+                        </dd>
+                        <dt> Konversi </dt>
+                        <dd>
+                          <dl class="simple">
+                            <dt> Ke Radian </dt>
+                            <dd>
+                              <p> Mengonversi masukan dari derajat ke radian. </p>
+                            </dd>
+                            <dt> Menuju Derajat </dt>
+                            <dd>
+                              <p> Mengonversi masukan dari radian ke derajat. </p>
+                            </dd>
+                          </dl>
+                        </dd>
+                      </dl>
+                    </dd>
+                    <dt> Penjepit </dt>
+                    <dd>
+                      <p> Membatasi keluaran ke kisaran (0,0 hingga 1,0). Lihat <a class="reference internal"
+                          href="../../../ glossary / index.html # term-clamp"> <span class="xref std std-term"> penjepit
+                          </span> </a>. </p>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="section" id="outputs">
+                  <h2> Mengeluarkan <a class="headerlink" href="#outputs" title="Permalink ke judul ini"> ¶ </a> </h2>
+                  <dl class="simple">
+                    <dt> Nilai </dt>
+                    <dd>
+                      <p> Keluaran nilai numerik. </p>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="section" id="contoh">
+                  <h2> Contoh <a class="headerlink" href="#examples" title="Permalink to this headline"> ¶ </a> </h2>
+                  <div class="section" id="manual-z-mask">
+                    <h3> Masker-Z Manual<a class="headerlink" href="#manual-z-mask"
+                        title="Permalink to this headline">¶</a></h3>
+                    <div class="figure align-default" id="id2">
+                      <img alt="../../../_images/compositing_types_converter_math_manual-z-mask.png"
+                        src="../../../_images/compositing_types_converter_math_manual-z-mask.png" />
+                      <p class="caption"><span class="caption-text">Contoh fungsi minimum dan maksimum. </span> <a
+                          class="headerlink" href="# id2" title="Tautan permanen ke gambar ini"> ¶ </a> </p>
+                    </div>
+                    <p> Contoh ini memiliki satu masukan adegan oleh simpul <em> Lapisan Render </em> teratas,
+                      yang memiliki kubus sekitar 10 unit dari kamera.
+                      Node <em> Render Layers </em> bagian bawah memasukkan sebuah adegan
+                      dengan bidang yang menutupi separuh kiri tampilan dan berjarak 7 unit dari kamera.
+                      Keduanya diumpankan melalui simpul <em> Map Value </em> masing-masing untuk membagi buffer Z
+                      dengan 20
+                      (kalikan dengan 0,05, seperti yang diperlihatkan di bidang Ukuran)
+                      dan masing-masing dijepit menjadi minimal / maksimal 0,0 / 1,0. </p>
+                    <p> Untuk fungsi minimum,
+                      node memilih nilai Z tersebut di mana piksel yang sesuai lebih dekat ke kamera;
+                      jadi ia memilih nilai Z untuk bidang dan bagian kubus.
+                      Latar belakang memiliki nilai Z tak terbatas, jadi itu dijepit ke 1.0 (ditampilkan sebagai putih).
+                      Dalam contoh maksimum, nilai Z kubus lebih besar dari bidangnya,
+                      jadi mereka dipilih untuk sisi kiri, tetapi <em> Render Layers </em> Z bidang tidak terbatas
+                      (dipetakan ke 1.0) untuk sisi kanan, jadi mereka dipilih. </p>
+                  </div>
+                  <div class="section" id="using-sine-function-to-pulsate">
+                    <h3> Menggunakan Fungsi Sinus untuk Berdenyut<a class="headerlink"
+                        href="#using-sine-function-to-pulsate" title="Permalink to this headline">¶</a></h3>
+                    <div class="figure align-default" id="id3">
+                      <img alt="../../../_images/compositing_types_converter_math_sine.png"
+                        src="../../../_images/compositing_types_converter_math_sine.png" />
+                      <p class="caption"><span class="caption-text">Menggunakan contoh fungsi sinus. </span> <a
+                          class="headerlink" href="# id3" title="Tautan permanen ke gambar ini"> ¶ </a> </p>
+                    </div>
+                    <p> Contoh ini memiliki simpul <em> Waktu </em> yang mengeluarkan urutan linier dari 0 hingga 1
+                      selama kursus
+                      dari 101 bingkai.
+                      Pada frame 25, nilai keluarannya adalah 0.25.
+                      Nilai tersebut dikalikan dengan 2 × pi (6,28) dan diubah menjadi 1,0 dengan fungsi Sinus,
+                      karena <span class="math notranslate nohighlight"> \ (sin (2 × pi / 4) = sin (pi / 2) = +1.0 \)
+                      </span>.
+                    </p>
+                    <p> Karena fungsi sinus dapat mengeluarkan nilai antara (-1.0 hingga 1.0),
+                      simpul <em> Nilai Peta </em> menskalakannya menjadi 0,0 hingga 1,0 dengan mengambil input (-1
+                      hingga 1), menambahkan 1
+                      (membuat 0 hingga 2), dan mengalikan hasilnya dengan satu-setengah (sehingga menskalakan output
+                      antara 0 hingga 1).
+                      <em> Color Ramp </em> default mengonversi nilai tersebut menjadi skala abu-abu.
+                      Jadi, abu-abu sedang sesuai dengan keluaran 0,0 oleh sinus, hitam menjadi -1,0,
+                      dan putih menjadi 1.0. Seperti yang Anda lihat, <span class="math notranslate nohighlight"> \ (sin
+                        (pi / 2) =
+                        1,0 \) </span>. Seperti memiliki kalkulator warna visual Anda sendiri!
+                      Menganimasikan penyiapan node ini memberikan urutan siklik yang mulus melalui berbagai abu-abu.
+                    </p>
+                    <p> Gunakan fungsi ini untuk bervariasi, misalnya,
+                      saluran alfa gambar untuk menghasilkan efek fading in / out.
+                      Ubah saluran Z untuk memindahkan adegan masuk / keluar fokus.
+                      Ubah nilai saluran warna untuk membuat "denyut" warna. </p>
+                  </div>
+                  <div class="section" id="brightening-scaling-a-channel">
+                    <h3> Mencerahkan (Penskalaan) Saluran<a class="headerlink" href="#brightening-scaling-a-channel"
+                        title="Permalink to this headline">¶</a></h3>
+                    <div class="figure align-default" id="id4">
+                      <img alt="../../../_images/compositing_types_converter_math_multiply.png"
+                        src="../../../_images/compositing_types_converter_math_multiply.png" />
+                      <p class="caption"><span class="caption-text">Menskalakan contoh saluran. </span> <a
+                          class="headerlink" href="# id4" title="Tautan permanen ke gambar ini"> ¶ </a> </p>
+                    </div>
+                    <p> Contoh ini memiliki simpul <em> Matematika (Perkalian) </em> yang meningkatkan saluran
+                      pencahayaan (Y)
+                      gambar untuk membuatnya lebih cerah. Perhatikan bahwa Anda harus menggunakan <em> node Nilai Peta
+                      </em>
+                      dengan min () dan max () diaktifkan untuk menjepit keluaran ke nilai yang valid.
+                      Dengan pendekatan ini, Anda dapat menggunakan fungsi logaritmik untuk membuat gambar dengan
+                      rentang dinamis tinggi.
+                      Untuk contoh khusus ini,
+                      ada juga <em> node Bright / Contrast </em> yang mungkin memberikan kontrol yang lebih sederhana
+                      atas kecerahan. </p>
+                  </div>
+                  <div class="section" id="limit-color-selection-posterization">
+                    <h3> Batasi Pemilihan Warna (Posterisasi)<a class="headerlink"
+                        href="#restrict-color-selection-posterization" title="Permalink to this headline">¶</a></h3>
+                    <div class="figure align-default" id="id5">
+                      <img alt="../../../_images/compositing_types_converter_math_posterization.png"
+                        src="../../../_images/compositing_types_converter_math_posterization.png" />
+                      <p class="caption"><span class="caption-text">Contoh posterisasi. </span> <a class="headerlink"
+                          href="# id5" title="Tautan permanen ke gambar ini"> ¶ </a> </p>
+                    </div>
+                    <p> Dalam contoh ini, kami membatasi nilai warna menjadi salah satu dari enam nilai: 0, 0.2, 0.4,
+                      0.6, 0.8,
+                      1. </p>
+                    <p> Untuk memisahkan rentang nilai yang berkelanjutan antara 0 dan 1 hingga kumpulan nilai tertentu,
+                      fungsi berikut digunakan: <span class="math notranslate nohighlight"> \ (round (x × n - 0.5) /
+                        (n - 1) \) </span>,
+                      di mana "n" adalah jumlah kemungkinan nilai keluaran, dan "x" adalah warna piksel masukan.
+                      <a class="referensi eksternal"
+                        href="https://en.blender.org/index.php/Doc:2.4/Manual/Composite_Nodes/Types/Convertor#Quantize.2FRestrict_Color_Selection">
+                        Baca
+                        lebih lanjut tentang fungsi ini </a>. </p>
+                    <p> Untuk mengimplementasikan fungsi ini di Blender, pertimbangkan penyiapan node di atas.
+                      Kami merangkai simpul Matematika menjadi fungsi yang mengambil setiap warna (nilai dari 0 hingga
+                      1),
+                      mengalikannya dengan enam, jumlah divisi yang diinginkan (nilai menjadi dari 0 hingga 6),
+                      mengimbanginya dengan 0,5 (-0,5 hingga 5,5),
+                      membulatkan nilai ke bilangan bulat terdekat (menghasilkan 0, 1, 2, 3, 4, 5),
+                      dan kemudian membagi warna piksel gambar menjadi lima (0.0, 0.2, 0.4, 0.6, 0.8, 1.0). </p>
+                    <p> Untuk gambar berwarna,
+                      Anda perlu membaginya menjadi saluran RGB terpisah menggunakan node <em> Pisahkan / Gabungkan RGBA
+                      </em>
+                      dan melakukan operasi ini di setiap saluran secara terpisah. </p>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+          </div>
+          <footer>
+
+            <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+              <a href="rgb_to_bw.html" class="btn btn-neutral float-right" title="RGB to BW Node" accesskey="n"
+                rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+
+
+              <a href="id_mask.html" class="btn btn-neutral float-left" title="ID Mask Node" accesskey="p"
+                rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+
+            </div>
+
+
+            <hr />
+
+            <div role="contentinfo">
+              <p>
+
+
+                &copy; <a href="../../../copyright.html">Copyright</a> : This page is licensed under a CC-BY-SA 4.0 Int.
+                License
+
+              </p>
+            </div>
+            <div class="footer-contribute">
+              <ul>
+                <li>
+                  <a href="https://developer.blender.org/diffusion/BM/browse/trunk/blender_docs/manual/compositing/types/converter/math.rst"
+                    class="fa fa-edit"> Edit Page</a>
+                </li>
+                <li>
+                  <a href="https://developer.blender.org/maniphest/task/edit/form/default/?description=Pagename%3A%20%60compositing/types/converter/math%60&project=PHID-PROJ-c4nvvrxuczix2326vlti"
+                    class="fa fa-bug"> Report Bug</a>
+                </li>
+                <ul>
+            </div>
+
+
+          </footer>
+
+        </div>
+      </div>
     </section>
 
   </div>
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
-<ul id="versionwrap" role="presentation">
-   <li style="float:left" role="presentation">
-		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-		2.83 
-		</span>
-		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
-			<li role="presentation">Loading...</li>
-		</ul>
-	</li>
-   <li style="float:right" role="presentation">
-		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
-			 en 
-		</span>
-		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
-			<li role="presentation">Loading...</li>
-		</ul>
-	</li>
-</ul>
-</div>
+    <ul id="versionwrap" role="presentation">
+      <li style="float:left" role="presentation">
+        <span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector"
+          aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+          2.83
+        </span>
+        <ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+          <li role="presentation">Loading...</li>
+        </ul>
+      </li>
+      <li style="float:right" role="presentation">
+        <span id="lang-dropdown" class="version-btn" tabindex="0" role="button" aria-label="language selector"
+          aria-haspopup="true" aria-controls="version-langlist">
+          en
+        </span>
+        <ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+          <li role="presentation">Loading...</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 
   <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
+    jQuery(function () {
+      SphinxRtdTheme.Navigation.enable(true);
+    });
   </script>
 
-  
-  
-    
-  
- 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-1418081-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+  <script>
+    window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+    ga('create', 'UA-1418081-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
 
 </body>
+
 </html>
